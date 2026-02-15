@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Universal Results</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+font-family:Arial;
+background:#0f2027;
+color:white;
+margin:0;
+padding:40px;
+}
+h1{margin-bottom:30px;}
+.result{
+margin-bottom:20px;
+padding:15px;
+background:#203a43;
+border-radius:10px;
+}
+a{
+color:#00c6ff;
+text-decoration:none;
+font-size:20px;
+}
+a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<h1 id="title"></h1>
+<div id="results"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const query = params.get("q");
+
+document.getElementById("title").innerText = 
+'Results for "' + query + '"';
+
+const resultsDiv = document.getElementById("results");
+
+// Fake example results
+const fakeResults = [
+{
+title: query + " - Official Info",
+link: "#"
+},
+{
+title: "Learn about " + query,
+link: "#"
+},
+{
+title: query + " News & Updates",
+link: "#"
+}
+];
+
+fakeResults.forEach(r => {
+const div = document.createElement("div");
+div.className = "result";
+div.innerHTML = `<a href="${r.link}">${r.title}</a>`;
+resultsDiv.appendChild(div);
+});
+</script>
+
+</body>
+</html>
